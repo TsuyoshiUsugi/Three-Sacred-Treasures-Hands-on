@@ -10,10 +10,13 @@ namespace Denik.VContainerPractice.Question1
         protected override void Configure(IContainerBuilder builder)
         {
             // Hierarchy 上に実体があるので，RegisterInstance
+            builder.RegisterInstance(_screen);
 
             // Plain C# Class なので，Register
+            builder.Register<HelloWorldService>(Lifetime.Scoped);
 
             // IStartable を実装しているので，RegisterEntryPoint
+            builder.RegisterEntryPoint<GamePresenter>();
 
         }
     }
